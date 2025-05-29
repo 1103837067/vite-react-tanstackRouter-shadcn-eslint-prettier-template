@@ -2,6 +2,9 @@
   "name": "app",
   "private": true,
   "type": "module",
+  "version": "1.0.0",
+  "author": "1103837067",
+  "license": "MIT",
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18.0.0",

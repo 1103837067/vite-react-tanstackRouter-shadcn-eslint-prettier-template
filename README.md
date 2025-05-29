@@ -1,5 +1,7 @@
 # React + TypeScript + 主题切换 + 多语言模板
 
+**Language / 语言**: [English](./README.en.md) | 中文简体
+
 这是一个现代化的React应用程序模板，集成了完整的主题切换功能和多语言支持。
 
 ## 🚀 快速开始
@@ -249,7 +251,7 @@ pnpm build
 
 ## 📄 许可证
 
-MIT License
+MIT License - Copyright (c) 2024 1103837067
 
 ---
 

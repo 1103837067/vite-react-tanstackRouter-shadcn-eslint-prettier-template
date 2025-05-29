@@ -13,10 +13,17 @@ import './lib/i18n';
 import reportWebVitals from './reportWebVitals.ts';
 import './styles.css';
 
+// GitHub Pages basepath
+const basepath =
+  import.meta.env.PROD && window.location.hostname === '1103837067.github.io'
+    ? '/vite-react-tanstackRouter-shadcn-eslint-prettier-template'
+    : '';
+
 // Create a new router instance
 const router = createRouter({
   routeTree,
   context: {},
+  basepath,
   defaultPreload: 'intent',
   scrollRestoration: true,
   defaultStructuralSharing: true,

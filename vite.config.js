@@ -7,11 +7,10 @@ import { resolve } from 'node:path';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
-  // 在生产环境中，如果是GitHub Pages部署，需要设置base路径
-  // 格式: /repository-name/
+  // GitHub Pages base path
   const base =
     mode === 'production' && process.env.GITHUB_PAGES
-      ? `/${process.env.GITHUB_REPOSITORY?.split('/')[1] || ''}/`
+      ? '/vite-react-tanstackRouter-shadcn-eslint-prettier-template/'
       : '/';
 
   return {

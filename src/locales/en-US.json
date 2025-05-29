@@ -1,0 +1,74 @@
+{
+  "common": {
+    "home": "Home",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "header": {
+    "backToHome": "Back to Home"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome": "Welcome to React + TypeScript",
+    "editFile": "Edit",
+    "saveToReload": "and save to reload",
+    "themeToggle": "Theme Toggle Feature",
+    "currentTheme": "Current theme setting:",
+    "actualTheme": "Actual applied theme:",
+    "lightMode": "Light",
+    "darkMode": "Dark",
+    "systemMode": "Follow System",
+    "lightModeActive": "Light Mode",
+    "darkModeActive": "Dark Mode",
+    "learnReact": "Learn React",
+    "learnTanStack": "Learn TanStack",
+    "learnShadcn": "Learn shadcn/ui",
+    "projectFeatures": "Project Features",
+    "techImplementation": "Technical Implementation",
+    "scrollTestArea": "Scroll Test Area",
+    "layoutStructure": "Layout Structure",
+    "layoutStructureDesc": "Modern layout system",
+    "scrollHandling": "Scroll Handling",
+    "scrollHandlingDesc": "Intelligent scrolling experience",
+    "testBlock": "Test Block",
+    "scrollTestDesc": "This is a test block for scrolling functionality. When you scroll down the page, a \"scroll to top\" button will appear in the bottom right corner.",
+    "scrollButtonHint": "When scrolled enough, a back-to-top button will appear in the bottom right corner",
+    "footerScrolled": "You've scrolled to the bottom! Try clicking the button in the bottom right corner to return to the top!",
+    "copyright": "React + TypeScript Theme Toggle System Demo",
+    "layoutDetails": {
+      "flexCol": "flex flex-col vertical layout",
+      "headerHeight": "Header: h-[69px] flex-none",
+      "contentFlex": "Content: flex-1 overflow-hidden",
+      "scrollAreaFull": "ScrollArea: h-full full fill"
+    },
+    "scrollDetails": {
+      "listenScroll": "Listen to ScrollArea internal scrolling",
+      "detectElement": "Intelligently detect scroll elements",
+      "smoothScroll": "Smooth scroll to top",
+      "autoShowHide": "Auto show/hide button"
+    },
+    "features": {
+      "themeSystem": "Theme System",
+      "themeSystemDesc": "Support for light, dark, and system theme modes",
+      "responsive": "Responsive Design",
+      "responsiveDesc": "Excellent experience on desktop and mobile devices",
+      "modernStack": "Modern Tech Stack",
+      "modernStackDesc": "React 19, TypeScript, TanStack Router",
+      "fixedHeader": "Fixed Header",
+      "fixedHeaderDesc": "Provides continuous navigation access",
+      "scrollArea": "ScrollArea",
+      "scrollAreaDesc": "Elegant scrolling experience",
+      "accessibility": "Accessibility Design",
+      "accessibilityDesc": "Follows Web accessibility design principles",
+      "i18n": "Multi-language Support",
+      "i18nDesc": "Support for Simplified Chinese and English switching"
+    }
+  }
+}

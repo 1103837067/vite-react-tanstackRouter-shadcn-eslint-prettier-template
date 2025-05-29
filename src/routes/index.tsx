@@ -1,5 +1,14 @@
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { useTheme } from '@/lib/theme-context';
 import { createFileRoute } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
 import logo from '../logo.svg';
 
 export const Route = createFileRoute('/')({
@@ -8,216 +17,209 @@ export const Route = createFileRoute('/')({
 
 function App() {
   const { theme, actualTheme } = useTheme();
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      title: `🎨 ${t('home.features.themeSystem')}`,
+      desc: t('home.features.themeSystemDesc'),
+    },
+    {
+      title: `📱 ${t('home.features.responsive')}`,
+      desc: t('home.features.responsiveDesc'),
+    },
+    {
+      title: `⚡ ${t('home.features.modernStack')}`,
+      desc: t('home.features.modernStackDesc'),
+    },
+    {
+      title: `🎯 ${t('home.features.fixedHeader')}`,
+      desc: t('home.features.fixedHeaderDesc'),
+    },
+    {
+      title: `📜 ${t('home.features.scrollArea')}`,
+      desc: t('home.features.scrollAreaDesc'),
+    },
+    {
+      title: `♿ ${t('home.features.accessibility')}`,
+      desc: t('home.features.accessibilityDesc'),
+    },
+    {
+      title: `🌐 ${t('home.features.i18n')}`,
+      desc: t('home.features.i18nDesc'),
+    },
+  ];
+
+  const links = [
+    { name: t('home.learnReact'), url: 'https://reactjs.org' },
+    { name: t('home.learnTanStack'), url: 'https://tanstack.com' },
+    { name: t('home.learnShadcn'), url: 'https://ui.shadcn.com' },
+  ];
 
   return (
-    <div className="text-center">
-      <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground transition-colors duration-300 py-8">
+    <div className="text-center space-y-16">
+      {/* Hero Section */}
+      <section className="min-h-screen flex flex-col items-center justify-center py-8">
         <img
           src={logo}
-          className="h-[30vmin] max-h-48 pointer-events-none animate-[spin_20s_linear_infinite]"
+          className="h-48 pointer-events-none animate-[spin_20s_linear_infinite] mb-8"
           alt="logo"
         />
-        <div className="space-y-4 max-w-2xl mx-auto px-4">
-          <h1 className="text-4xl font-bold">欢迎使用 React + TypeScript</h1>
 
-          <p className="text-lg">
-            编辑{' '}
+        <div className="space-y-6 max-w-2xl mx-auto px-4">
+          <h1 className="text-4xl font-bold">{t('home.welcome')}</h1>
+
+          <p className="text-lg text-muted-foreground">
+            {t('home.editFile')}{' '}
             <code className="bg-muted px-2 py-1 rounded text-sm">
               src/routes/index.tsx
             </code>{' '}
-            并保存以重新加载。
+            {t('home.saveToReload')}
           </p>
 
-          {/* 主题状态显示 */}
-          <div className="bg-card border border-border rounded-lg p-4 my-6 text-left">
-            <h2 className="text-lg font-semibold mb-3 text-center">
-              🎨 主题切换功能
-            </h2>
-            <div className="space-y-2 text-sm">
+          {/* 主题状态卡片 */}
+          <Card className="text-left">
+            <CardHeader>
+              <CardTitle className="text-center">
+                🎨 {t('home.themeToggle')}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-muted-foreground">当前主题设置:</span>
+                <span className="text-muted-foreground">
+                  {t('home.currentTheme')}
+                </span>
                 <span className="font-medium text-primary">
                   {theme === 'light'
-                    ? '☀️ 亮色'
+                    ? `☀️ ${t('home.lightMode')}`
                     : theme === 'dark'
-                      ? '🌙 暗色'
-                      : '💻 跟随系统'}
+                      ? `🌙 ${t('home.darkMode')}`
+                      : `💻 ${t('home.systemMode')}`}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">实际应用主题:</span>
+                <span className="text-muted-foreground">
+                  {t('home.actualTheme')}
+                </span>
                 <span className="font-medium text-primary">
-                  {actualTheme === 'light' ? '☀️ 亮色模式' : '🌙 暗色模式'}
+                  {actualTheme === 'light'
+                    ? `☀️ ${t('home.lightModeActive')}`
+                    : `🌙 ${t('home.darkModeActive')}`}
                 </span>
               </div>
-            </div>
-            <p className="text-xs text-muted-foreground mt-3 text-center">
-              Header固定在顶部，使用ScrollArea处理内容滚动！
-            </p>
-          </div>
+            </CardContent>
+          </Card>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              className="text-primary hover:text-primary/80 hover:underline transition-colors"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              学习 React
-            </a>
-            <a
-              className="text-primary hover:text-primary/80 hover:underline transition-colors"
-              href="https://tanstack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              学习 TanStack
-            </a>
-            <a
-              className="text-primary hover:text-primary/80 hover:underline transition-colors"
-              href="https://ui.shadcn.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              学习 shadcn/ui
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-center mb-8">🚀 项目特性</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">🎨 主题系统</h3>
-              <p className="text-muted-foreground">
-                完整的主题切换系统，支持亮色、暗色和跟随系统三种模式。
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">📱 响应式设计</h3>
-              <p className="text-muted-foreground">
-                完全响应式布局，在桌面和移动设备上都有出色的体验。
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">⚡ 现代技术栈</h3>
-              <p className="text-muted-foreground">
-                使用React 19、TypeScript、TanStack Router和shadcn/ui构建。
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">🎯 固定Header</h3>
-              <p className="text-muted-foreground">
-                Header固定在顶部，提供持续的导航访问能力。
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">📜 ScrollArea</h3>
-              <p className="text-muted-foreground">
-                使用shadcn ScrollArea组件实现优雅的滚动体验。
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">♿ 无障碍设计</h3>
-              <p className="text-muted-foreground">
-                遵循Web无障碍设计原则，确保所有用户都能使用。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-center mb-8">📐 新布局系统</h2>
-          <div className="space-y-8">
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-8">
-              <h3 className="text-2xl font-semibold mb-4">
-                ScrollArea + 固定Header
-              </h3>
-              <ul className="text-left space-y-2 max-w-2xl mx-auto">
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">✓</span>
-                  <span>使用flexbox布局，Header固定高度</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">✓</span>
-                  <span>内容区域使用ScrollArea组件</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">✓</span>
-                  <span>ScrollToTop按钮适配ScrollArea滚动</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">✓</span>
-                  <span>完全占满视窗高度，无需padding调整</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-accent/20 rounded-lg p-8">
-              <h3 className="text-2xl font-semibold mb-4">技术实现细节</h3>
-              <div className="grid md:grid-cols-2 gap-6 text-left">
-                <div>
-                  <h4 className="font-semibold mb-2">布局结构</h4>
-                  <ul className="space-y-1 text-sm">
-                    <li>• flex flex-col 垂直布局</li>
-                    <li>• Header: h-[69px] flex-none</li>
-                    <li>• 内容: flex-1 overflow-hidden</li>
-                    <li>• ScrollArea: h-full 完全填充</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">滚动处理</h4>
-                  <ul className="space-y-1 text-sm">
-                    <li>• 监听ScrollArea内部滚动</li>
-                    <li>• 智能检测滚动元素</li>
-                    <li>• 平滑滚动到顶部</li>
-                    <li>• 自动显示/隐藏按钮</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 bg-muted/20">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            📏 滚动测试区域
-          </h2>
-          <div className="space-y-8">
-            {Array.from({ length: 5 }, (_, i) => (
-              <div
-                key={i}
-                className="bg-card border border-border rounded-lg p-8"
-              >
-                <h3 className="text-xl font-semibold mb-4">测试区块 {i + 1}</h3>
-                <p className="text-muted-foreground mb-4">
-                  这是一个测试滚动功能的区块。当您滚动到页面下方时，
-                  右下角会出现一个&ldquo;滚动到顶部&rdquo;的按钮。
-                </p>
-                <div className="h-24 bg-gradient-to-r from-primary/5 to-secondary/5 rounded flex items-center justify-center">
-                  <span className="text-sm text-muted-foreground">
-                    滚动距离足够时，右下角会显示返回顶部按钮
-                  </span>
-                </div>
-              </div>
+          {/* 链接按钮 */}
+          <div className="flex flex-wrap gap-4 justify-center">
+            {links.map(link => (
+              <Button key={link.name} variant="outline" asChild>
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.name}
+                </a>
+              </Button>
             ))}
           </div>
         </div>
       </section>
 
-      <footer className="py-12 px-4 bg-muted/50 border-t border-border">
-        <div className="container mx-auto max-w-4xl text-center">
-          <p className="text-muted-foreground mb-4">
-            现在您已经滚动到底部了！试试点击右下角的按钮返回顶部！
-          </p>
+      {/* 特性展示 */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold mb-8">
+            🚀 {t('home.projectFeatures')}
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map(feature => (
+              <Card key={feature.title}>
+                <CardHeader>
+                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{feature.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 技术实现 */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold mb-8">
+            📐 {t('home.techImplementation')}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>{t('home.layoutStructure')}</CardTitle>
+                <CardDescription>
+                  {t('home.layoutStructureDesc')}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-left space-y-1 text-sm">
+                <p>• {t('home.layoutDetails.flexCol')}</p>
+                <p>• {t('home.layoutDetails.headerHeight')}</p>
+                <p>• {t('home.layoutDetails.contentFlex')}</p>
+                <p>• {t('home.layoutDetails.scrollAreaFull')}</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>{t('home.scrollHandling')}</CardTitle>
+                <CardDescription>
+                  {t('home.scrollHandlingDesc')}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-left space-y-1 text-sm">
+                <p>• {t('home.scrollDetails.listenScroll')}</p>
+                <p>• {t('home.scrollDetails.detectElement')}</p>
+                <p>• {t('home.scrollDetails.smoothScroll')}</p>
+                <p>• {t('home.scrollDetails.autoShowHide')}</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* 滚动测试区域 */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold mb-8">
+            📏 {t('home.scrollTestArea')}
+          </h2>
+          <div className="space-y-6">
+            {Array.from({ length: 3 }, (_, i) => (
+              <Card key={i}>
+                <CardHeader>
+                  <CardTitle>
+                    {t('home.testBlock')} {i + 1}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    {t('home.scrollTestDesc')}
+                  </p>
+                  <div className="h-24 bg-gradient-to-r from-primary/5 to-secondary/5 rounded flex items-center justify-center">
+                    <span className="text-sm text-muted-foreground">
+                      {t('home.scrollButtonHint')}
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-4 border-t">
+        <div className="container mx-auto max-w-4xl text-center space-y-4">
+          <p className="text-muted-foreground">{t('home.footerScrolled')}</p>
           <p className="text-sm text-muted-foreground">
-            © 2024 React + TypeScript 主题切换系统演示 - ScrollArea版本
+            © 2024 {t('home.copyright')}
           </p>
         </div>
       </footer>

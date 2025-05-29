@@ -7,6 +7,9 @@ import { Toaster } from './components/ui/sonner';
 import { ThemeProvider } from './lib/theme-context';
 import { routeTree } from './routeTree.gen';
 
+// Import i18n configuration
+import './lib/i18n';
+
 import reportWebVitals from './reportWebVitals.ts';
 import './styles.css';
 

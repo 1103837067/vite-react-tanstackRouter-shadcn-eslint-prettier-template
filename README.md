@@ -4,23 +4,28 @@
 
 ## 🚀 快速开始
 
-### 安装依赖
+### 使用此模板
+
+1. **点击 "Use this template" 按钮** 或克隆仓库：
 
 ```bash
-npm install
-# 或
+git clone https://github.com/1103837067/vite-react-tanstackRouter-shadcn-eslint-prettier-template.git
+cd vite-react-tanstackRouter-shadcn-eslint-prettier-template
+```
+
+2. **安装依赖**：
+
+```bash
 pnpm install
 ```
 
-### 启动开发服务器
+3. **启动开发服务器**：
 
 ```bash
-npm run dev
-# 或
 pnpm dev
 ```
 
-访问 [http://localhost:3000](http://localhost:3000) 查看应用程序。
+4. **访问应用**：打开 [http://localhost:3000](http://localhost:3000)
 
 ## ✨ 主要功能
 
@@ -59,7 +64,7 @@ pnpm dev
 3. **选择主题**:
    - 亮色 ☀️
    - 暗色 🌙
-   - 跟随系统 ��
+   - 跟随系统 💻
 
 ### 语言切换
 
@@ -202,7 +207,24 @@ pnpm build
 
 ## 📦 部署
 
-构建完成后，`dist` 目录包含了所有静态文件，可以部署到任何静态文件服务器。
+### GitHub Pages (推荐)
+
+项目已配置自动部署到GitHub Pages：
+
+1. **启用GitHub Pages**：
+
+   - 进入仓库 Settings → Pages
+   - Source 选择 "GitHub Actions"
+
+2. **自动部署**：
+   - 推送到 `main` 分支自动触发部署
+   - 访问：`https://your-username.github.io/your-repository-name/`
+
+### 其他平台
+
+- **Vercel**: 使用根目录的 `vercel.json` 配置
+- **Netlify**: 拖拽 `dist` 文件夹到Netlify
+- **手动部署**: 构建完成后，`dist` 目录包含所有静态文件
 
 ## 🛠️ 开发工具
 
